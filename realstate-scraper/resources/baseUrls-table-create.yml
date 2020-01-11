@@ -1,8 +1,8 @@
 Resources:
-  ${self.provider.environment.baseUrlsTableName}: 
+  baseUrlsTable: 
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: ${self.provider.environment.baseUrlsTableName}
+      TableName: ${self:provider.environment.baseUrlsTableName}
       AttributeDefinitions:
         - AttributeName: baseUrl
           AttributeType: S
