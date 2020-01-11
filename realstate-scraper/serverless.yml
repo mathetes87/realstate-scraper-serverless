@@ -7,7 +7,14 @@ provider:
   runtime: python3.7
   stage: ${opt:stage}
   region: us-east-1
-  profile: mathetes
+
+  profile: mathetesmemorySize: 256 # optional, in MB, default is 1024
+  timeout: 900 # optional, in seconds, default is 6
+  
+  environment:
+    baseUrlsTableName: baseUrlsTable
+
+
 
 functions:
   newListings:
