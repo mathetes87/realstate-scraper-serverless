@@ -1,0 +1,14 @@
+Resources:
+  baseUrlsTable: 
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: baseUrlsTable
+      AttributeDefinitions:
+        - AttributeName: baseUrl
+          AttributeType: S
+      KeySchema:
+        - AttributeName: baseUrl
+          KeyType: HASH
+      ProvisionedThroughput:
+        ReadCapacityUnits: 1
+        WriteCapacityUnits: 1

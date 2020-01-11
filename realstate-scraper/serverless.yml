@@ -3,18 +3,21 @@ app: realstate
 org: jhonorato
 
 provider:
-	name: aws
-	runtime: python3.8
-	stage: dev
-	region: us-east-1
-
-
-environment:
-	variable1: value1
+  name: aws
+  runtime: python3.7
+  stage: ${opt:stage}
+  region: us-east-1
+  profile: mathetes
 
 functions:
-  hello:
-	handler: handler.hello
+  newListings:
+    handler: new_listings.get_new_listings
 
-   events:
-     - schedule: rate(60 minutes)
+    events:
+      - schedule: rate(60 minutes)
+
+resources:
+  # Create base Urls table
+  - ${file(resources/baseUrls-table-create.yml)}
+  # Create listings table
+  - ${file(resources/listings-table-create.yml)}
