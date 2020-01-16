@@ -1,0 +1,4 @@
+boto3
+simplejson
+beautifulsoup4
+httpx

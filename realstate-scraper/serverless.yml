@@ -16,10 +16,8 @@ provider:
     baseUrlsTableName: baseUrlsTable
     listingsTableName: listingsTable
 
-
-
 functions:
-  newListings:
+  getNewListings:
     handler: new_listings.get_new_listings
 
     events:
@@ -30,3 +28,18 @@ resources:
   - ${file(resources/baseUrls-table-create.yml)}
   # Create listings table
   - ${file(resources/listings-table-create.yml)}
+
+package:
+  exclude:
+    - node_modules/**
+    - serverless_sdk/**
+    - .vscode/**
+    - test/**
+
+
+custom:
+  pythonRequirements:
+    dockerizePip: true
+
+plugins:
+  - serverless-python-requirements

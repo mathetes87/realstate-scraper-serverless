@@ -2,7 +2,7 @@ Resources:
   listingsTable: 
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: ${self:provider.environment.listingsTable}
+      TableName: ${self:provider.environment.listingsTableName}
       AttributeDefinitions:
         - AttributeName: url
           AttributeType: S
